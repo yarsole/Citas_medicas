@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card bg-primary text-white p-5 text-center">
+            <h1 class="display-5">¡Hola, {{ usuario }}!</h1>
+            <p class="lead">Bienvenido a tu panel de gestión médica. ¿Qué deseas hacer hoy?</p>
+        </div>
+    </div>
+    <div class="col-md-6 mb-4">
+        <div class="card h-100 p-4 text-center">
+            <h3 class="text-secondary">Gestión de Pacientes</h3>
+            <p class="text-muted small">Agregue nuevos pacientes, consulte motivos de consulta y gestione el historial de citas.</p>
+            <a href="/pacientes" class="btn btn-outline-primary mt-auto">Ver Pacientes</a>
+        </div>
+    </div>
+    <div class="col-md-6 mb-4">
+        <div class="card h-100 p-4 text-center border-info">
+            <h3 class="text-info">Estadísticas Rápidas</h3>
+            <p class="display-6 mt-3">Próximamente</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

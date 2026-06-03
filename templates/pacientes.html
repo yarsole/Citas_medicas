@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-md-4">
+        <div class="card p-4">
+            <h4 class="mb-4 text-primary">Registrar Cita</h4>
+            <form action="/pacientes" method="POST">
+                <div class="mb-3">
+                    <label class="form-label small fw-bold">Nombre del Paciente</label>
+                    <input type="text" name="nombre" class="form-control" required placeholder="Ej. Juan Pérez">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label small fw-bold">Edad</label>
+                    <input type="number" name="edad" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label small fw-bold">Motivo/Enfermedad</label>
+                    <textarea name="enfermedad" class="form-control" rows="2" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label small fw-bold">Teléfono de Contacto</label>
+                    <input type="text" name="telefono" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Agendar Cita</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="card p-4">
+            <h4 class="mb-4 text-secondary">Lista de Citas Médicas</h4>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Paciente</th>
+                            <th>Edad</th>
+                            <th>Motivo</th>
+                            <th>Contacto</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for p in pacientes %}
+                        <tr>
+                            <td><strong>{{ p.nombre }}</strong></td>
+                            <td>{{ p.edad }} años</td>
+                            <td><span class="badge bg-info text-dark">{{ p.enfermedad }}</span></td>
+                            <td>{{ p.telefono }}</td>
+                            <td><a href="/eliminar/{{ p._id }}" class="btn btn-outline-danger btn-sm">Dar de Alta</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

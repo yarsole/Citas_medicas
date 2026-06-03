@@ -1,0 +1,19 @@
+[project]
+name = "proyecto-final"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "bson>=0.5.10",
+    "certifi>=2026.5.20",
+    "dnspython>=2.8.0",
+    "flask>=3.1.3",
+    "flask-mail>=0.10.0",
+    "pymongo>=4.17.0",
+]
+
+[tool.uv.workspace]
+members = [
+    "proyecto_final",
+]
